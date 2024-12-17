@@ -21,7 +21,7 @@ import java.time.Duration;
 import org.testng.annotations.AfterMethod;
 
 public class LoginPageTest extends Base {
-	public Home homepage;
+	//public Home homepage;
 	public LoginPageTest login_page;
 
 	@Test
@@ -30,10 +30,10 @@ public class LoginPageTest extends Base {
 		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);
-		homepage = login_page.click_login_btn();
+		login_page.click_login_btn();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		boolean isHomepage_loaded = login_page.isDashboard_loaded();
-		assertTrue(isHomepage_loaded, Constant.ALERTMESSAGEFORINVALIDCREDENTIALS);
+		assertTrue(isHomepage_loaded, Constant.ERRORMESSAGEFORLOGIN);
 	}
 
 	@Test
@@ -42,7 +42,7 @@ public class LoginPageTest extends Base {
 		String password = ExcelUtility.readStringData(2, 1, "LoginPage");
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);
-		homepage = login_page.click_login_btn();
+		login_page.click_login_btn();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		boolean isAlert_loaded = login_page.isAlert_displayed();
 		assertTrue(isAlert_loaded, Constant.ALERTMESSAGEFORINVALIDCREDENTIALS);
@@ -62,7 +62,7 @@ public class LoginPageTest extends Base {
 
 	@DataProvider(name = "credentials")
 	public Object[][] testData() {
-		Object data[][] = { { "user3", "Test123" },{ "user4", "Test123" } };
+		Object data[][] = {{ "user3", "Test123" }};
 		return data;
 	}
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="edgetest(failed)">
+    <parameter name="browzer" value="edge"/>
+    <parameter name="Username" value="admin"/>
+    <parameter name="Password" value="admin"/>
+    <classes>
+      <class name="testScript.LoginPageTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- testScript.LoginPageTest -->
+    </classes>
+  </test> <!-- edgetest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

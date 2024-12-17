@@ -14,6 +14,5 @@ public class Constant
 	public static final String FAILEDTOUPDATECONTACT="Contact not updated";
 	public static final String TESTIMAGEFILE=System.getProperty("user.dir")+"\\src\\main\\resources\\Doll.jpg";
 	public static final String SUBCATEGORYNOTAVAILABLE="Subcategory not available";
-	public static final String CONFIGFILE = System.getProperty("user.dir")
-			+ "\\src\\test\\resources\\config.properties";
+	public static final String CONFIGFILE = System.getProperty("user.dir")+ "\\src\\test\\resources\\config.properties";
 }

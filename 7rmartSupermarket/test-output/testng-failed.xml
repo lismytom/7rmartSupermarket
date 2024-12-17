@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Failed suite [ParallelTesting]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="classes" name="chrometest(failed)">
+    <parameter name="browzer" value="chrome"/>
+    <parameter name="Username" value="admin"/>
+    <parameter name="Password" value="admin"/>
+    <classes>
+      <class name="testScript.AdminUsers_UserSearchTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+          <include name="verifyUserCanBeSearched"/>
+        </methods>
+      </class> <!-- testScript.AdminUsers_UserSearchTest -->
+      <class name="testScript.LoginPageTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="verifyUserIsAbleToLoginWithValidCredentials"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- testScript.LoginPageTest -->
+    </classes>
+  </test> <!-- chrometest(failed) -->
+</suite> <!-- Failed suite [ParallelTesting] -->

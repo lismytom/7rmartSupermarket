@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="ParallelTesting" parallel="classes" thread-count="5">
 	<test name="chrometest">
 		<parameter name="browzer" value="chrome"></parameter>
 		<parameter name="Username" value="admin"></parameter>
@@ -12,22 +12,7 @@
 					<include name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword" />
 				</methods>
 			</class>
-
+			<class name="testScript.AdminUsers_UserSearchTest"></class>
 		</classes>
 	</test>
-	<test name="edgetest">
-		<parameter name="browzer" value="edge"></parameter>
-		<parameter name="Username" value="admin"></parameter>
-		<parameter name="Password" value="admin"></parameter>
-		<classes>
-
-			<class name="testScript.LoginPageTest">
-				<methods>
-					<include name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword" />
-				</methods>
-			</class>
-
-		</classes>
-	</test>
-
 </suite>

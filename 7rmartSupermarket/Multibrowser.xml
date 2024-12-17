@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="MultibrowserTest" parallel="tests" thread-count="5">
 	<test name="chrometest">
 		<parameter name="browzer" value="chrome"></parameter>
 		<parameter name="Username" value="admin"></parameter>
@@ -9,7 +9,7 @@
 
 			<class name="testScript.LoginPageTest">
 				<methods>
-					<include name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword" />
+					<include name="verifyUserIsAbleToLoginWithValidCredentials" />
 				</methods>
 			</class>
 
@@ -23,7 +23,7 @@
 
 			<class name="testScript.LoginPageTest">
 				<methods>
-					<include name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword" />
+					<include name="verifyUserIsAbleToLoginWithValidCredentials" />
 				</methods>
 			</class>
 
