@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-ParallelTesting" class="navigator-link">
-              <span class="suite-name border-passed">ParallelTesting</span>
+              <span class="suite-name border-failed">ParallelTesting</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-ParallelTesting" class="hide-methods failed suite-ParallelTesting"> (hide)</a> <!-- hide-methods failed suite-ParallelTesting -->
+                      <a href="#" panel-name="suite-ParallelTesting" class="show-methods failed suite-ParallelTesting"> (show)</a> <!-- show-methods failed suite-ParallelTesting -->
+                    </span>
+                    <div class="method-list-content failed suite-ParallelTesting">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ParallelTesting" title="testScript.AdminUsers_UserSearchTest" class="method navigator-link" hash-for-method="verifyUserCanBeSearched">verifyUserCanBeSearched</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-ParallelTesting -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,12 +117,7 @@
                     <div class="method-list-content passed suite-ParallelTesting">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ParallelTesting" title="testScript.AdminUsers_UserSearchTest" class="method navigator-link" hash-for-method="verifyUserCanBeSearched">verifyUserCanBeSearched</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ParallelTesting" title="testScript.LoginPageTest" class="method navigator-link" hash-for-method="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword(user3, Test123)">verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword(user3, Test123)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-ParallelTesting" title="testScript.LoginPageTest" class="method navigator-link" hash-for-method="verifyUserIsAbleToLoginWithValidCredentials(admin, admin)">verifyUserIsAbleToLoginWithValidCredentials(admin, admin)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-ParallelTesting -->
@@ -123,9 +132,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-ParallelTesting" class="panel ParallelTesting">
-          <div class="suite-ParallelTesting-class-passed">
+          <div class="suite-ParallelTesting-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">testScript.AdminUsers_UserSearchTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -134,10 +143,18 @@
                   <a name="verifyUserCanBeSearched">
                   </a> <!-- verifyUserCanBeSearched -->
                   <span class="method-name">verifyUserCanBeSearched</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.apache.poi.xssf.usermodel.XSSFRow.getCell(int)&quot; because &quot;r&quot; is null
+	at utilities.ExcelUtility.readStringData(ExcelUtility.java:25)
+	at testScript.AdminUsers_UserSearchTest.verifyUserCanBeSearched(AdminUsers_UserSearchTest.java:24)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+... Removed 12 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-ParallelTesting-class-passed -->
+          </div> <!-- suite-ParallelTesting-class-failed -->
           <div class="suite-ParallelTesting-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -146,10 +163,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword(user3, Test123)">
-                  </a> <!-- verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword(user3, Test123) -->
-                  <span class="method-name">verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword</span>
-                  <span class="parameters">(user3,Test123)</span>
+                  <a name="verifyUserIsAbleToLoginWithValidCredentials(admin, admin)">
+                  </a> <!-- verifyUserIsAbleToLoginWithValidCredentials(admin, admin) -->
+                  <span class="method-name">verifyUserIsAbleToLoginWithValidCredentials</span>
+                  <span class="parameters">(admin,admin)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -171,10 +188,14 @@
     &lt;classes&gt;
       &lt;class name=&quot;testScript.LoginPageTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword&quot;/&gt;
+          &lt;include name=&quot;verifyUserIsAbleToLoginWithValidCredentials&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- testScript.LoginPageTest --&gt;
-      &lt;class name=&quot;testScript.AdminUsers_UserSearchTest&quot;/&gt;
+      &lt;class name=&quot;testScript.AdminUsers_UserSearchTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;verifyUserCanBeSearched&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- testScript.AdminUsers_UserSearchTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- chrometest --&gt;
 &lt;/suite&gt; &lt;!-- ParallelTesting --&gt;
@@ -216,18 +237,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyUserCanBeSearched')
-data.setCell(0, 2, 'testScript.AdminUsers_UserSearchTest')
-data.setCell(0, 3, 4408);
+data.setCell(0, 1, 'verifyUserIsAbleToLoginWithValidCredentials')
+data.setCell(0, 2, 'testScript.LoginPageTest')
+data.setCell(0, 3, 1322);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword')
-data.setCell(1, 2, 'testScript.LoginPageTest')
-data.setCell(1, 3, 1041);
+data.setCell(1, 1, 'verifyUserCanBeSearched')
+data.setCell(1, 2, 'testScript.AdminUsers_UserSearchTest')
+data.setCell(1, 3, 1079);
 window.suiteTableData['ParallelTesting']= { tableData: data, tableDiv: 'times-div-ParallelTesting'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-ParallelTesting">
               </div> <!-- times-div-ParallelTesting -->
             </div> <!-- times-div -->
@@ -252,7 +273,7 @@ return data;
                 <br/>
                 <span class="ignored-method-name">verifyUserIsAbleToLoginWithInvalidUsernameAndValidPassword</span>
                 <br/>
-                <span class="ignored-method-name">verifyUserIsAbleToLoginWithValidCredentials</span>
+                <span class="ignored-method-name">verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -276,30 +297,35 @@ return data;
                 <span class="method-name">beforeMethod(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword(user3, Test123)</span>
-                <span class="method-start">4162 ms</span>
-              </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">testScript.AdminUsers_UserSearchTest</div> <!-- chronological-class-name -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">verifyUserCanBeSearched</span>
-                <span class="method-start">4361 ms</span>
+                <span class="method-start">4427 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">testScript.LoginPageTest</div> <!-- chronological-class-name -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod([TestResult name=verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword status=SUCCESS method=...)</span>
-                <span class="method-start">5206 ms</span>
-              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">verifyUserIsAbleToLoginWithValidCredentials(admin, admin)</span>
+                <span class="method-start">4629 ms</span>
+              </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">testScript.AdminUsers_UserSearchTest</div> <!-- chronological-class-name -->
               <div class="configuration-method after">
-                <span class="method-name">afterMethod([TestResult name=verifyUserCanBeSearched status=SUCCESS method=AdminUsers_UserSearchTest.verifyUserC...)</span>
-                <span class="method-start">8771 ms</span>
+                <span class="method-name">afterMethod([TestResult name=verifyUserCanBeSearched status=FAILURE method=AdminUsers_UserSearchTest.verifyUserC...)</span>
+                <span class="method-start">5518 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testScript.LoginPageTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=verifyUserIsAbleToLoginWithValidCredentials status=SUCCESS method=LoginPageTest.ver...)</span>
+                <span class="method-start">5954 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

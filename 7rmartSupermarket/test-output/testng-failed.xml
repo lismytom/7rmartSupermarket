@@ -13,13 +13,6 @@
           <include name="verifyUserCanBeSearched"/>
         </methods>
       </class> <!-- testScript.AdminUsers_UserSearchTest -->
-      <class name="testScript.LoginPageTest">
-        <methods>
-          <include name="afterMethod"/>
-          <include name="verifyUserIsAbleToLoginWithValidCredentials"/>
-          <include name="beforeMethod"/>
-        </methods>
-      </class> <!-- testScript.LoginPageTest -->
     </classes>
   </test> <!-- chrometest(failed) -->
 </suite> <!-- Failed suite [ParallelTesting] -->

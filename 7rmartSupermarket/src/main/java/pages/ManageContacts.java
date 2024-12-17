@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.PageUtility;
+
 public class ManageContacts {
 
 	public WebDriver driver;
@@ -78,8 +80,8 @@ public class ManageContacts {
 	}
 
 	public ManageContacts clickUpdateButton() throws Exception {
-		JavascriptExecutor javascript = (JavascriptExecutor) driver;
-		javascript.executeScript("window.scrollBy(0,500)");
+		PageUtility pageutility = new PageUtility();
+		pageutility.scroll(update_button);
 		Thread.sleep(2000);
 		update_button.click();
 		return this;

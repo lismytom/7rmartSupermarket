@@ -20,8 +20,8 @@ public class AdminUsersNewAddTest extends Base {
 
 	@Test
 	public void verifyNewUserIsAdded() throws AWTException, IOException {
-		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
-		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		String username = ExcelUtility.readStringData(6, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(6, 1, "LoginPage");
 		String new_username = ExcelUtility.readStringData(1, 0, "AddUser");
 		String new_password = ExcelUtility.readStringData(1, 1, "AddUser");
 		LoginPage login_page = new LoginPage(driver);

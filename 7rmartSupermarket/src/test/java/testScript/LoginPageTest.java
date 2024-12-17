@@ -21,19 +21,20 @@ import java.time.Duration;
 import org.testng.annotations.AfterMethod;
 
 public class LoginPageTest extends Base {
-	//public Home homepage;
 	public LoginPageTest login_page;
 
 	@Test
-	public void verifyUserIsAbleToLoginWithValidCredentials() throws AWTException, IOException {
+	public void verifyUserIsAbleToLoginWithInvalidUsernameAndValidPassword() throws AWTException, IOException {
 		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);
 		login_page.click_login_btn();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		boolean isHomepage_loaded = login_page.isDashboard_loaded();
-		assertTrue(isHomepage_loaded, Constant.ERRORMESSAGEFORLOGIN);
+		//boolean isHomepage_loaded = login_page.isDashboard_loaded();
+		//assertTrue(isHomepage_loaded, Constant.ERRORMESSAGEFORLOGIN);
+		boolean isAlert_loaded = login_page.isAlert_displayed();
+	    assertTrue(isAlert_loaded, Constant.ALERTMESSAGEFORINVALIDCREDENTIALS);
 	}
 
 	@Test
@@ -50,14 +51,16 @@ public class LoginPageTest extends Base {
 
 	@Test
 	@Parameters({ "Username", "Password" })
-	public void verifyUserIsAbleToLoginWithInvalidUsernameAndValidPassword(String username, String password)
+	public void verifyUserIsAbleToLoginWithValidCredentials(String username, String password)
 			throws AWTException {
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);
 		login_page.click_login_btn();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		boolean isAlert_loaded = login_page.isAlert_displayed();
-		assertTrue(isAlert_loaded, Constant.ALERTMESSAGEFORINVALIDCREDENTIALS);
+		//boolean isAlert_loaded = login_page.isAlert_displayed();
+		//assertTrue(isAlert_loaded, Constant.ALERTMESSAGEFORINVALIDCREDENTIALS);
+		boolean isHomepage_loaded = login_page.isDashboard_loaded();
+		assertTrue(isHomepage_loaded, Constant.ERRORMESSAGEFORLOGIN);
 	}
 
 	@DataProvider(name = "credentials")

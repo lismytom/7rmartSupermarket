@@ -21,8 +21,9 @@ public class AdminUsers_UserSearchTest extends Base {
 
 	@Test
 	public void verifyUserCanBeSearched() throws AWTException, IOException {
-		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
-		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		String username = ExcelUtility.readStringData(6, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(6, 1, "LoginPage");
+		//String username1 = ExcelUtility.readStringData(1, 0, "UserSearch");
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);
 		homepage = login_page.click_login_btn();

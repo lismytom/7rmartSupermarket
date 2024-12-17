@@ -6,13 +6,16 @@
 		<parameter name="Username" value="admin"></parameter>
 		<parameter name="Password" value="admin"></parameter>
 		<classes>
-
 			<class name="testScript.LoginPageTest">
 				<methods>
-					<include name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword" />
+					<include name="verifyUserIsAbleToLoginWithValidCredentials" />
 				</methods>
 			</class>
-			<class name="testScript.AdminUsers_UserSearchTest"></class>
+			<class name="testScript.AdminUsers_UserSearchTest">
+				<methods>
+					<include name="verifyUserCanBeSearched" />
+				</methods>
+			</class>
 		</classes>
 	</test>
 </suite>

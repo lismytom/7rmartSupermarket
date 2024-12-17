@@ -20,9 +20,9 @@ public class ManageNews_AddNewsTest extends Base {
 	public ManageNews_AddNews addNews;
 
 	@Test(retryAnalyzer = retry.Retry.class)
-	public void verifyNewUserIsAdded() throws AWTException, IOException {
-		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
-		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+	public void verifyWhetherNewUserCanBeAdded() throws AWTException, IOException {
+		String username = ExcelUtility.readStringData(6, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(6, 1, "LoginPage");
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);
 		homepage = login_page.click_login_btn();

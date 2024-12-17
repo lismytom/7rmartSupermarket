@@ -20,8 +20,8 @@ public class ManageCategory_AddSubCategory_Test extends Base {
 
 	@Test
 	public void verifyUserIsAbleToAddSubCategory() throws Exception {
-		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
-		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		String username = ExcelUtility.readStringData(6, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(6, 1, "LoginPage");
 		String subCategory = ExcelUtility.readStringData(1, 0, "AddSubCategroy");
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);

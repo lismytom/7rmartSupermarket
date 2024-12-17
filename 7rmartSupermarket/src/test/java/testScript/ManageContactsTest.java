@@ -20,9 +20,9 @@ public class ManageContactsTest extends Base {
 	public ManageContacts addContact;
 
 	@Test
-	public void verifyContactDetailsareupdated() throws Exception {
-		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
-		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+	public void verifyContactDetailsCanBeUpdated() throws Exception {
+		String username = ExcelUtility.readStringData(6, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(6, 1, "LoginPage");
 		String phone = ExcelUtility.readIntegerData(1, 0, "ManageContact");
 		String email = ExcelUtility.readStringData(1, 1, "ManageContact");
 		String address = ExcelUtility.readStringData(1, 2, "ManageContact");

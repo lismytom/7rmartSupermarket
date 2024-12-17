@@ -9,7 +9,7 @@
 
 			<class name="testScript.LoginPageTest">
 				<methods>
-					<include name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword" />
+					<include name="verifyUserIsAbleToLoginWithValidCredentials" />
 				</methods>
 			</class>
 
@@ -23,7 +23,7 @@
 
 			<class name="testScript.LoginPageTest">
 				<methods>
-					<include name="verifyUserIsAbleToLoginWithInvalidUsernameAndInvalidPassword" />
+					<include name="verifyUserIsAbleToLoginWithValidCredentials" />
 				</methods>
 			</class>
 

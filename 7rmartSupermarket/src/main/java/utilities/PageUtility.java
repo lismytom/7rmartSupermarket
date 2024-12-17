@@ -1,7 +1,9 @@
 package utilities;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class PageUtility {
@@ -17,4 +19,15 @@ public class PageUtility {
 		category.selectByIndex(index);
 	}
 
+	public void scroll(WebElement scroll) {
+		JavascriptExecutor javascript = (JavascriptExecutor) driver;
+		javascript.executeScript("window.scrollBy(0,500)");
+	}
+
+	public void dragAndDrop(WebElement source, WebElement destination) {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(source);
+		actions.doubleClick(source).perform();
+		actions.dragAndDrop(source, destination).build().perform();
+	}
 }

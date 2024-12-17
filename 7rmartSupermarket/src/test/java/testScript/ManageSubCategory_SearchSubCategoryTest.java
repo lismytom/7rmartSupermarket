@@ -18,9 +18,9 @@ public class ManageSubCategory_SearchSubCategoryTest extends Base {
 	public ManageCategory_SearchSubCategory searchSubcategory;
 
 	@Test
-	public void VerifyUserCanSearchExistingSubCategory() throws Exception {
-		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
-		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+	public void verifyUserCanSearchExistingSubCategory() throws Exception {
+		String username = ExcelUtility.readStringData(6, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(6, 1, "LoginPage");
 		String subCategory = ExcelUtility.readStringData(1, 0, "AddSubCategroy");
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);
@@ -28,7 +28,7 @@ public class ManageSubCategory_SearchSubCategoryTest extends Base {
 		searchSubcategory = homepage.clickSearchSubCategory();
 		searchSubcategory.clickSearchButton().selectCategoryToSearch().enterSubcategoryToSearch(subCategory)
 				.clickOnSearchButton();
-		boolean isSubCategoryAdded = searchSubcategory.isSearchResultDisplayed();
-		assertTrue(isSubCategoryAdded, Constant.SUBCATEGORYNOTAVAILABLE);
+		boolean isSubCategorySearched = searchSubcategory.isSearchResultDisplayed();
+		assertTrue(isSubCategorySearched, Constant.SUBCATEGORYNOTAVAILABLE);
 	}
 }
