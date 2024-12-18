@@ -28,19 +28,26 @@ public class AdminUsers_UserSearchPage {
 	@FindBy(xpath = "//button[@name='Search']")
 	WebElement searchbutton;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr/td[1]")
-	WebElement tablecontent;
+	WebElement search_result;
 
-	public AdminUsers_UserSearchPage searchExistingUser() throws IOException {
+	public AdminUsers_UserSearchPage clickOnMainSearchButton() {
 		search_button.click();
-		String username1 = ExcelUtility.readStringData(1, 0, "UserSearch");
+		return this;
+	}
+
+	public AdminUsers_UserSearchPage enterUsernameAndUserType(String username1) {
 		usernamesearch.sendKeys(username1);
 		PageUtility page = new PageUtility();
 		page.selectByIndex(usertype, 2);
+		return this;
+	}
+
+	public AdminUsers_UserSearchPage clickOnSearchButton() {
 		searchbutton.click();
 		return this;
 	}
 
 	public boolean isUserAvailable() {
-		return tablecontent.isDisplayed();
+		return search_result.isDisplayed();
 	}
 }
