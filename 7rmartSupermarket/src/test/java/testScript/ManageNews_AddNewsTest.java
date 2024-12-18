@@ -33,6 +33,5 @@ public class ManageNews_AddNewsTest extends Base {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		boolean isNewsCreated = addNews.isNewsCreatedSuccessfully();
 		assertTrue(isNewsCreated, Constant.FAILEDTOCREATENEWNEWS);
-		addNews.alert_close();
 	}
 }

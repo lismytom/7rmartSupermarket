@@ -82,7 +82,6 @@ public class ManageContacts {
 	public ManageContacts clickUpdateButton() throws Exception {
 		PageUtility pageutility = new PageUtility();
 		pageutility.scroll(update_button);
-		Thread.sleep(2000);
 		update_button.click();
 		return this;
 	}
