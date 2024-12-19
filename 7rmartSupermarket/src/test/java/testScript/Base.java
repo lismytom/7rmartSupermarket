@@ -26,7 +26,7 @@ public class Base {
 	public Properties properties;
 	public FileInputStream fis;
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	@Parameters("browzer")
 	public void beforeMethod(String browzer) throws Exception {
 		try {

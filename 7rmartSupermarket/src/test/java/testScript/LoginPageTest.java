@@ -7,6 +7,7 @@ import pages.AdminUsersNewAddPage;
 import pages.Home;
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.Faker_Utility;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -25,8 +26,11 @@ public class LoginPageTest extends Base {
 
 	@Test
 	public void verifyUserIsAbleToLoginWithInvalidUsernameAndValidPassword() throws AWTException, IOException {
-		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
-		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		Faker_Utility fake=new Faker_Utility();
+		String username=fake.getFakeFirstName();
+		String password=fake.getFakeLastName();
+		//String username = ExcelUtility.readStringData(1, 0, "LoginPage");
+		//String password = ExcelUtility.readStringData(1, 1, "LoginPage");
 		LoginPage login_page = new LoginPage(driver);
 		login_page.enter_loginCredentials(username, password);
 		login_page.click_login_btn();
@@ -37,7 +41,7 @@ public class LoginPageTest extends Base {
 	    assertTrue(isAlert_loaded, Constant.ALERTMESSAGEFORINVALIDCREDENTIALS);
 	}
 
-	@Test
+	@Test(groups = {"smoke"})
 	public void verifyUserIsAbleToLoginWithValidUsernameAndInvalidPassword() throws AWTException, IOException {
 		String username = ExcelUtility.readStringData(2, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(2, 1, "LoginPage");
@@ -57,8 +61,6 @@ public class LoginPageTest extends Base {
 		login_page.enter_loginCredentials(username, password);
 		login_page.click_login_btn();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		//boolean isAlert_loaded = login_page.isAlert_displayed();
-		//assertTrue(isAlert_loaded, Constant.ALERTMESSAGEFORINVALIDCREDENTIALS);
 		boolean isHomepage_loaded = login_page.isDashboard_loaded();
 		assertTrue(isHomepage_loaded, Constant.ERRORMESSAGEFORLOGIN);
 	}
